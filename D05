@@ -1,0 +1,73 @@
+In [ ]: import numpy as np
+In [ ]: #1.請計算各科成績平均、最大值、最小值、標準差，其中數學缺一筆資料可忽略?
+import numpy as np
+english_score = np.array([55,89,76,65,48,70])
+math_score = np.array([60,85,60,68,np.nan,60])
+chinese_score = np.array([65,90,82,72,66,77])
+#1. 請計算各科成績平均、最大值、最小值、標準差，其中數學缺一筆資料可忽略?
+#英文成績平均、最大值、最小值、標準差
+Emean=np.mean(english_score)#平均值
+Emax=np.amax(english_score) #最大值
+Emin=np.amin(english_score) #最小值
+Estd=np.std(english_score)#標準差
+print(Emean)
+print(Emax)
+print(Emin)
+print(Estd)
+#數學成績平均、最大值、最小值、標準差
+Mmean=np.nanmean(math_score) #平均值
+Mmax=np.nanmax(math_score) #最大值
+Mmin=np.nanmin(math_score) #最小值
+Mstd=np.nanstd(math_score) #標準差
+print(Mmean)
+print(Mmax)
+print(Mmin)
+print(Mstd)
+#中文成績平均、最大值、最小值、標準差
+Cmean=np.mean(chinese_score)#平均值
+Cmax=np.amax(chinese_score) #最大值
+Cmin=np.amin(chinese_score) #最小值
+Cstd=np.std(chinese_score)#標準差
+print(Cmean)
+print(Cmax)
+print(Cmin)
+print(Cstd)
+Out[ ]: 
+67.16666666666667
+89
+48
+13.433995020924426
+66.6
+85.0
+60.0
+9.707728879609279
+75.33333333333333
+90
+65
+8.825468196582484
+In [ ]: #2.第五位同學補考數學後成績為55，請計算補考後數學成績平均、最大值、最小值、標準差?
+math_score = np.array([60,85,60,68,55,60])
+Mmean=np.nanmean(math_score) #平均值
+Mmax=np.nanmax(math_score) #最大值
+Mmin=np.nanmin(math_score) #最小值
+Mstd=np.nanstd(math_score) #標準差
+print(Mmean)
+print(Mmax)
+print(Mmin)
+print(Mstd)
+Out[ ]: 
+64.66666666666667
+85
+55
+9.860132971832694
+In [ ]: #3.用補考後資料找出與國文成績相關係數最高的學科?
+CorCE= np.corrcoef(chinese_score,english_score)
+CorCM= np.corrcoef(chinese_score,math_score)
+print(CorCE)
+print(CorCM)
+#與國文成績相關係數最高的學科是英文
+Out[ ]: 
+[[1.         0.97792828]
+ [0.97792828 1.        ]]
+[[1.         0.74056803]
+ [0.74056803 1.        ]]
