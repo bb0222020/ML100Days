@@ -1,0 +1,27 @@
+In [ ]: import numpy as np
+In [ ]: #1. 運用上列array計算反矩陣，乘上原矩陣，並觀察是否為單位矩陣?
+array1 = np.array([[10, 8], [3, 5]])
+inv_array1=np.linalg.inv(array1) #反矩陣
+array1@inv_array1 
+print(array1@inv_array1)
+Out[ ]: [[1. 0.]
+       [0. 1.]]  #是單位矩陣
+In [ ]: #2. 運用上列array計算特徵值、特徵向量?
+w, v = np.linalg.eig(array1)
+print(w) 
+print(v)
+Out[ ]: 
+[13.  2.] # eigenvalues
+[[ 0.93632918 -0.70710678]
+ [ 0.35112344  0.70710678]] # eigenvectors
+In [ ]: #3. 運用上列array計算SVD?
+u, s, vh = np.linalg.svd(array1)
+print(u) 
+print(s)
+print(vh)
+Out[ ]:
+[[-0.91663818 -0.39971796]
+ [-0.39971796  0.91663818]]
+[13.94721714  1.86417116]
+[[-0.74319741 -0.6690722 ]
+ [-0.6690722   0.74319741]]
